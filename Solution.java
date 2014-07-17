@@ -29,6 +29,9 @@ public class Solution {
             wordsOfFirstChar = new Trie();
             while (s.hasNext()) {
                 String word = s.next();
+                /*
+                 * Skip words that have a length less than 4
+                 */
                 if (word.length() <= 3) {
                     continue;
                 }
