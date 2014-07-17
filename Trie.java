@@ -62,6 +62,26 @@ public class Trie {
         return false;
     }
 
+    public boolean doesWordExistHelper(ArrayList<Node> nodes, String word) {
+        if (word.isEmpty()) {
+            return true;
+        }
+        for (Node nd : nodes) {
+            if (word.contains(nd.key)) {
+                System.out.println("prefix = " + nd.key);
+                return doesWordExistHelper(nd.children, word.substring(nd.key.length()));
+            }
+        }
+        return false;
+    }
+
+    public boolean doesWordExist(String word) {
+        if (word.isEmpty()) {
+            return false;
+        }
+        return doesWordExistHelper(root.children, word);
+    }
+
     public ArrayList<String> getOddLengthPrefixes() {
         ArrayList<String> oddLengthPrefixes = new ArrayList<String> ();
         for (Node nd : root.children) {
