@@ -15,10 +15,11 @@ public class TrieTest {
                 prefixTrie.insert(s.next());
             }
             s.close();
-            boolean prefixExist = prefixTrie.doesPrefixExist("zigzag");
-        
+            boolean prefixExist = prefixTrie.doesPrefixExist("zigzag");        
             System.out.println("Prefix exist = " + prefixExist);
             boolean exist = prefixTrie.doesWordExist("zigzag");
+            System.out.println(exist);
+            exist = prefixTrie.doesWordExist("zirqe");
             System.out.println(exist);
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
